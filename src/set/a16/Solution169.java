@@ -1,0 +1,20 @@
+package set.a16;
+
+public class Solution169 {
+	public int majorityElement(int[] nums) {
+        int max = 0, count = 0;
+        
+        for(int i = 0; i < nums.length; i++){
+        	if(count == 0){
+        		max = nums[i];
+        		count++;
+        	}else if(nums[i] == max){
+        		count++;
+        	}else{
+        		count--;
+        	}
+        }
+        
+        return max;
+    }
+}
