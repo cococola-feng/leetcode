@@ -30,7 +30,10 @@ public class Trie {
     }
     
     private void insertWord(String word, int index, TrieNode node){
-    	if(index == word.length()) return;
+    	if(index == word.length()){
+    		node.childs.put('\0', null);
+    		return;
+    	}
     	
     	if(!node.childs.containsKey(word.charAt(index))){
     		node.childs.put(word.charAt(index), new TrieNode(word.charAt(index)));
@@ -44,11 +47,11 @@ public class Trie {
         return searchWord(word, 0, root, false);
     }
     
-    private boolean searchWord(String word, int index, TrieNode node, boolean remains) {
-    	if(index == word.length()) return remains ? (node.childs.size() != 0) : (node.childs.size() == 0);
+    private boolean searchWord(String word, int index, TrieNode node, boolean prefix) {
+    	if(index == word.length()) return prefix ? true : (node.childs.containsKey('\0'));
     	
     	if(node.childs.containsKey(word.charAt(index))){
-    		return searchWord(word, index + 1, node.childs.get(word.charAt(index)), remains);
+    		return searchWord(word, index + 1, node.childs.get(word.charAt(index)), prefix);
     	}else{
     		return false;
     	}

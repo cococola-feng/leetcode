@@ -21,7 +21,7 @@ public class SolutionSet21Test {
 		System.out.println(s.shortestPalindrome("abcd"));
 	}
 	
-	@Test
+//	@Test
 	public void drawCPULine() {
 		for(int i = 0; i < 100000; i++){
 			for(long j = 0; j < 20000000000L; j++){
@@ -33,6 +33,29 @@ public class SolutionSet21Test {
 				e.printStackTrace();
 			}
 		}
+	}
+//	@Test
+	public void testWordDictionary() {
+		WordDictionary wd = new WordDictionary();
+		wd.addWord("bad");
+		wd.addWord("dad");
+		wd.addWord("mad");
+		System.out.println(wd.search("pad"));
+		System.out.println(wd.search("bad"));
+		System.out.println(wd.search(".ad"));
+		System.out.println(wd.search("b.."));
+	}
+	
+	@Test
+	public void testWordDictionary_SE() {
+		WordDictionary_SE wd = new WordDictionary_SE();
+		wd.addWord("bad");
+		wd.addWord("dad");
+		wd.addWord("mad");
+		System.out.println(wd.search("pad"));
+		System.out.println(wd.search("bad"));
+		System.out.println(wd.search(".ad"));
+		System.out.println(wd.search("b.."));
 	}
 
 }
