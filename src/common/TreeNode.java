@@ -27,4 +27,19 @@ public class TreeNode {
 		preorderTraverse(root.left);
 		preorderTraverse(root.right);
 	}
+	
+	public static TreeNode construct(int[] array){
+		if(array == null || array.length == 0) return null;
+		return constructbyArray(array, 0);
+	}
+	
+	private static TreeNode constructbyArray(int[] array, int index){
+		TreeNode rel = null;
+		if(index < array.length){
+			rel = new TreeNode(array[index]);
+			rel.left = constructbyArray(array, (index + 1) * 2 - 1);
+			rel.right = constructbyArray(array, (index + 1) * 2);
+		}
+		return rel;
+	}
 }
