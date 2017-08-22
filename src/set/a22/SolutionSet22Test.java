@@ -1,6 +1,6 @@
 package set.a22;
 
-import static org.junit.Assert.*;
+import java.util.List;
 
 import org.junit.Test;
 
@@ -66,11 +66,29 @@ public class SolutionSet22Test {
 		System.out.println(s.calculate(" 2- (1 - 2)"));
 	}
 
-	@Test
+//	@Test
 	public void testSolution227() {
 		Solution227 s = new Solution227();
 		System.out.println(s.calculate("3+2*2"));
 		System.out.println(s.calculate(" 3/2 "));
 		System.out.println(s.calculate(" 3+5 / 2 "));
+	}
+	
+//	@Test
+	public void testSolution229() {
+		Solution229 s = new Solution229();
+		List<Integer> rel = s.majorityElement(new int[]{1,2,3,1,2});
+		for(Integer i : rel){
+			System.out.println(i);
+		}
+	}
+	
+	@Test
+	public void testSolution229_Extend() {
+		Solution229_Extend s = new Solution229_Extend();
+		List<Integer> rel = s.majorityElement(new int[]{1,2,3,4,1,2,3});
+		for(Integer i : rel){
+			System.out.println(i);
+		}
 	}
 }
