@@ -1,9 +1,13 @@
 package set.a23;
 
+import java.util.ArrayDeque;
+import java.util.Arrays;
+import java.util.Deque;
+import java.util.TreeSet;
+
 import org.junit.Test;
 
 import common.ListNode;
-import set.a22.Solution223;
 
 public class SolutionSet23Test {
 
@@ -27,11 +31,54 @@ public class SolutionSet23Test {
 		System.out.println("2: " + count);
 	}
 	
-	@Test
+//	@Test
 	public void testSolution234() {
 		Solution234 s = new Solution234();
 		ListNode head = ListNode.create(new int[]{1,2});
 		System.out.println(s.isPalindrome(head));
+	}
+	
+//	@Test
+	public void testHashSet() {
+		TreeSet<Integer> set = new TreeSet<Integer>();
+		set.add(1);
+		set.add(2);
+		set.add(3);
+		
+		System.out.println(set.first());
+	}
+	
+//	@Test
+	public void testSolution239() {
+		int[] array = new int[]{1,3,-1,-3,5,3,6,7};
+		Solution239 s = new Solution239();
+		System.out.println(Arrays.toString(s.maxSlidingWindow(array, 3)));
+		array = new int[] {1,3,1,2,0,5};
+		System.out.println(Arrays.toString(s.maxSlidingWindow(array, 3)));
+	}
+	
+//	@Test
+	public void testDeque() {
+		Deque<Integer> q = new ArrayDeque<Integer>();
+		q.offer(1);
+		q.offer(3);
+		q.offer(2);
+		System.out.println(q.pollLast());
+	}
+	
+	@Test
+	public void testSolution240() {
+		int[][] matrix = new int[][]{
+			  {1,   4,  7, 11, 15},
+			  {2,   5,  8, 12, 19},
+			  {3,   6,  9, 16, 22},
+			  {10, 13, 14, 17, 24},
+			  {18, 21, 23, 26, 30}
+			};
+			
+		Solution240_Failed s = new Solution240_Failed();
+		s.searchMatrix(matrix, 5);
+
 	}
 
 }

@@ -6,6 +6,8 @@ import java.util.List;
 import common.TreeNode;
 
 public class Solution236_Failed {
+	//Reason: A Tree could have two nodes share the same value
+	
 	public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
 		TreeNode rel = null;
 		List<TreeNode> listP = new ArrayList<TreeNode>();

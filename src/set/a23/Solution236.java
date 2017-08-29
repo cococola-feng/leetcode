@@ -14,9 +14,21 @@ public class Solution236 {
 		searchNode(root, p, new ArrayList<TreeNode>(), listP);
 		searchNode(root, q, new ArrayList<TreeNode>(), listQ);
 		
+		int max = 0;
 		for(List<TreeNode> pathP : listP){
 			for(List<TreeNode> pathQ : listQ){
-				
+				int tmpCount = 0;
+				TreeNode tmpNode = null;
+				for(int i = 0; i < pathP.size() && i < pathQ.size(); i++){
+					if(pathP.get(i).val == pathQ.get(i).val){
+						tmpNode = pathP.get(i);
+						tmpCount++;
+					}
+				}
+				if(tmpCount > max){
+					max = tmpCount;
+					rel = tmpNode;
+				}
 			}
 		}
 		return rel;
@@ -27,7 +39,7 @@ public class Solution236 {
 		
 		list.add(node);
 		
-		if(node.val == target.val){
+		if(node == target){
 			relList.add(new ArrayList<TreeNode>(list));
 			return true;
 		}
